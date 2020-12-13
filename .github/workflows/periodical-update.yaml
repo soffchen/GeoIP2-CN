@@ -75,3 +75,8 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: release
         force: true
+
+    - name: Purge CDN Cache
+      run: |
+        curl https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/CN-ip-cidr.txt
+        curl https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/Country.mmdb
