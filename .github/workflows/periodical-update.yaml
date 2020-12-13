@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
   schedule: 
-    - cron:  '0 2 */3 * *'
+    - cron:  '30 * * * *'
 
 jobs:
   build:
@@ -39,13 +39,7 @@ jobs:
 
     - name: Obtain CN IP lists
       run: |
-        curl -LR -o dist/ipip_net.txt "https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt"
-        curl -LR -o dist/chunzhen.txt "https://raw.githubusercontent.com/metowolf/iplist/master/data/country/CN.txt"
-
-    - name: Merge and IP lists and remove duplicates
-      run: |
-        awk 'FNR==1{print ""}{print}' dist/*.txt > dist/merge.txt
-        awk '!seen[$0]++' dist/merge.txt > dist/CN-ip-cidr.txt
+        curl -LR -o dist/CN-ip-cidr.txt "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt"
 
     - name: Generate GeoIP2 database
       run: |
@@ -56,7 +50,7 @@ jobs:
 
     - name: Push artifacts to release branch
       run: |
-        git config --local user.email "10215166+Hackl0us@users.noreply.github.com"
+        git config --local user.email "891708+soffchen@users.noreply.github.com"
         git config --local user.name "github-action[bot]"
 
         git fetch
@@ -81,6 +75,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: release
         force: true
-
-    - name: Purge CDN Cache
-      run: curl ${{ secrets.CDN_URL }}
