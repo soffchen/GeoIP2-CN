@@ -39,7 +39,7 @@ jobs:
 
     - name: Obtain CN IP lists
       run: |
-        curl -LR -o dist/CN-ip-cidr.txt "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt"
+        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" > dist/CN-ip-cidr.txt
 
     - name: Generate GeoIP2 database
       run: |
