@@ -40,6 +40,9 @@ jobs:
     - name: Obtain CN IP lists
       run: |
         curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" > dist/CN-ip-cidr.txt
+        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" | sed "s/^\(.*\)$/  - '\1'/g;1ipayload:" > dist/clash-rule-provider.yml
+        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" | sed "s/^\(.*\)$/IP-CIDR,\1,no-resolve/g" > dist/clash-ruleset.list
+        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" | sed "s/^\(.*\)$/IP-CIDR,\1/g" > dist/surge-ruleset.list
 
     - name: Generate GeoIP2 database
       run: |
@@ -59,11 +62,13 @@ jobs:
         git checkout --orphan release-orphan
         git rm -rf .
 
-        cp -rf dist/CN-ip-cidr.txt ./
-        cp -rf dist/Country.mmdb ./
+        cp -f dist/* .
 
         git add Country.mmdb
         git add CN-ip-cidr.txt
+        git add clash-rule-provider.yml
+        git add clash-ruleset.list
+        git add surge-ruleset.list
         git commit -am "Updated at $(date)"
 
         git branch -D release
@@ -80,3 +85,6 @@ jobs:
       run: |
         curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/CN-ip-cidr.txt > /dev/null 2>&1
         curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/Country.mmdb > /dev/null 2>&1
+        curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml > /dev/null 2>&1
+        curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-ruleset.list > /dev/null 2>&1
+        curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/surge-ruleset.list > /dev/null 2>&1
