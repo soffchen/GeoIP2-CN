@@ -6,10 +6,11 @@
 ### 📥 下载链接
 | 📦 项目 | 📃 文件名 | :octocat: GitHub RAW | 🚀 CDN 加速 | 🔧 适用范围
 |  :--:  |  :--:  |     :--:     |     :--:    | ---- |
-| IP-CIDR 列表 | CN-ip-cidr.txt | [点我下载](https://github.com/soffchen/GeoIP2-CN/raw/release/CN-ip-cidr.txt) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/CN-ip-cidr.txt) | iptables, ipset, squid, gost, 3proxy, etc. | 
-| GeoIP2 数据库 | Country.mmdb | [点我下载](https://github.com/soffchen/GeoIP2-CN/raw/release/Country.mmdb) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/Country.mmdb) | Surge, Shadowrocket, QuantumultX, Clash IP-CDR|
-| Clash Rule Provider | clash-rule-provider.yml | [点我下载](https://github.com/soffchen/GeoIP2-CN/raw/release/clash-rule-provider.yml) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml) | Clash Rule Providers|
-| Quantumult / Clash Rule Set  | clash-ruleset.list | [点我下载](https://github.com/soffchen/GeoIP2-CN/raw/release/clash-ruleset.list) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-ruleset.list) | QuantumultX, Clash Rule Set |
-| Surge Rule Set | surge-ruleset.list | [点我下载](https://github.com/soffchen/GeoIP2-CN/raw/release/surge-ruleset.list) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/surge-ruleset.list) | Surge Rule Set |
+| IP-CIDR 列表 | CN-ip-cidr.txt | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/CN-ip-cidr.txt) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/CN-ip-cidr.txt) | iptables, ipset, squid, gost, 3proxy, etc. | 
+| GeoIP2 数据库 | Country.mmdb | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/Country.mmdb) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/Country.mmdb) | Surge, Shadowrocket, QuantumultX, Clash IP-CDR|
+| Clash Rule Provider | clash-rule-provider.yml | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-rule-provider.yml) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml) | Clash Rule Providers|
+| Quantumult / Clash Rule Set  | clash-ruleset.list | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-ruleset.list) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-ruleset.list) | QuantumultX, Clash Rule Set |
+| Surge Rule Set | surge-ruleset.list | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/surge-ruleset.list) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/surge-ruleset.list) | Surge Rule Set |
+| IP sets | chnroute.ipset | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/chnroute.ipset) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/chnroute.ipset) | ipset restore < chnroute |
 
 ### ⚠️ 本项目旨在优化 CDN 网络访问速度，请勿用于非法用途
