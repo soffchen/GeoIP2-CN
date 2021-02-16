@@ -40,9 +40,12 @@ jobs:
     - name: Obtain CN IP lists
       run: |
         curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" > dist/CN-ip-cidr.txt
-        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" | sed "s/^\(.*\)$/  - '\1'/g;1ipayload:" > dist/clash-rule-provider.yml
-        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" | sed "s/^\(.*\)$/IP-CIDR,\1,no-resolve/g" > dist/clash-ruleset.list
-        curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" | sed "s/^\(.*\)$/IP-CIDR,\1/g" > dist/surge-ruleset.list
+        cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/  - '\1'/g;1ipayload:" > dist/clash-rule-provider.yml
+        cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/IP-CIDR,\1,no-resolve/g" > dist/clash-ruleset.list
+        cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/IP-CIDR,\1/g" > dist/surge-ruleset.list
+        
+        echo 'create chnroute hash:net family inet hashsize 1024 maxelem 65536' > dist/chnroute.ipset
+        cat dist/CN-ip-cidr.txt | sed 's/^/add chnroute /g' >> dist/chnroute.ipset
 
     - name: Generate GeoIP2 database
       run: |
@@ -69,6 +72,7 @@ jobs:
         git add clash-rule-provider.yml
         git add clash-ruleset.list
         git add surge-ruleset.list
+        git add chnroute.ipset
         git commit -am "Updated at $(date)"
 
         git branch -D release
@@ -88,3 +92,4 @@ jobs:
         curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml > /dev/null 2>&1
         curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-ruleset.list > /dev/null 2>&1
         curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/surge-ruleset.list > /dev/null 2>&1
+        curl -L https://purge.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/chnroute.ipset > /dev/null 2>&1
