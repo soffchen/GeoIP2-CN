@@ -11,6 +11,6 @@
 | Clash Rule Provider | clash-rule-provider.yml | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-rule-provider.yml) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml) | Clash Rule Providers|
 | Quantumult / Clash Rule Set  | clash-ruleset.list | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-ruleset.list) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-ruleset.list) | QuantumultX, Clash Rule Set |
 | Surge Rule Set | surge-ruleset.list | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/surge-ruleset.list) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/surge-ruleset.list) | Surge Rule Set |
-| IP sets | chnroute.ipset | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/chnroute.ipset) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/chnroute.ipset) | ipset restore < chnroute |
+| IP sets | chnroute.ipset | [点我下载](https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/chnroute.ipset) | [点我起飞](https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/chnroute.ipset) | ipset restore < chnroute.ipset |
 
 ### ⚠️ 本项目旨在优化 CDN 网络访问速度，请勿用于非法用途
