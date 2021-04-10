@@ -41,7 +41,7 @@ jobs:
       run: |
         curl -LR -o- "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" | grep -v "#" > dist/CN-ip-cidr.txt
         cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/  - '\1'/g;1ipayload:" > dist/clash-rule-provider.yml
-        cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/IP-CIDR,\1,no-resolve/g" > dist/clash-ruleset.list
+        cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/IP-CIDR,\1/g" > dist/clash-ruleset.list
         cat dist/CN-ip-cidr.txt | sed "s/^\(.*\)$/IP-CIDR,\1/g" > dist/surge-ruleset.list
         
         echo 'create chnroute hash:net family inet hashsize 1024 maxelem 65536' > dist/chnroute.ipset
