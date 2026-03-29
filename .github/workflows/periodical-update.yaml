@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v6
+
     - name: Set up Go 1.x
       uses: actions/setup-go@v6
       with:
         go-version: ^1.21
       id: go
-
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v6
 
     - name: Get dependencies
       run: |
@@ -79,7 +79,7 @@ jobs:
         git branch -m release
             
     - name: GitHub Push
-      uses: ad-m/github-push-action@v1.0.0
+      uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: release
